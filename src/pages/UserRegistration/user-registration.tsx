@@ -121,7 +121,7 @@ const UserRegistration = ({
                 <InputPassword
                   placeholder="Confirm password"
                   formLabelProps={{ fontSize: 'sm' }}
-                  data-testid="-confirm-password-input"
+                  data-testid="confirm-password-input"
                   error={errors.confirmPassword?.message}
                   {...register('confirmPassword')}
                 />

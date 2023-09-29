@@ -29,7 +29,6 @@ const InputElement = forwardRef<HTMLInputElement, InputProps>(
           _hover={{
             borderColor: 'white',
           }}
-          sx={{ 'border-color': 'white' }}
         />
         {error ? <InputError>{error}</InputError> : <Box h="1.625rem" />}
       </>

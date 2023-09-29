@@ -62,17 +62,16 @@ export const dateFormatter = (date: string): string => {
 
 export const phoneFormatter = (value: string): string => {
   const cellphoneLengthWithDDDFormatted = 14
-  let valueReceived = value
 
-  valueReceived = valueReceived.replace(/[^0-9]/g, '')
-  valueReceived = valueReceived.replace(/(\d{2})(\d)/, '($1) $2')
+  const numericValue = value.replace(/[^0-9]/g, '')
 
-  let preFormatted = valueReceived
-  preFormatted = valueReceived.replace(/(\d{4})(\d)/, '$1-$2')
+  let formattedValue = numericValue.replace(/(\d{2})(\d)/, '($1) $2')
 
-  if (valueReceived.length === cellphoneLengthWithDDDFormatted) {
-    preFormatted = valueReceived.replace(/(\d{5})(\d)/, '$1-$2')
+  formattedValue = formattedValue.replace(/(\d{4})(\d)/, '$1-$2')
+
+  if (formattedValue.length === cellphoneLengthWithDDDFormatted) {
+    formattedValue = formattedValue.replace(/(\d{5})(\d)/, '$1-$2')
   }
 
-  return preFormatted
+  return formattedValue
 }
