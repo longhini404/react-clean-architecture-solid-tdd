@@ -9,8 +9,6 @@ type LayoutDefaultProps = {
 const LayoutDefault = ({ children }: LayoutDefaultProps) => (
   <Flex direction="row">
     <Flex
-      h="100vh"
-      width="full"
       bg="gray.800"
       direction="column"
       alignItems="center"

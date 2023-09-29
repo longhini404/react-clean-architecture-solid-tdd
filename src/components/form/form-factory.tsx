@@ -61,10 +61,10 @@ const FormFactory = <T extends FormFactoryTypes>(
       >
         {label && (
           <FormLabel
-            fontSize="0.875rem"
-            mb="0.9"
+            mb="0.8"
             color="gray.500"
             fontWeight={400}
+            fontSize="0.875rem"
             htmlFor={props.name}
             {...formLabelProps}
           >
@@ -73,8 +73,8 @@ const FormFactory = <T extends FormFactoryTypes>(
         )}
 
         <Component
-          h={sizeDefaultInput}
           bg="white"
+          h={sizeDefaultInput}
           borderColor="gray.200"
           _focus={{ borderColor: 'blue.400' }}
           {...componentProps}

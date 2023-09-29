@@ -15,9 +15,9 @@ const InputNumberElement = forwardRef<HTMLInputElement, InputProps>(
     return (
       <>
         <Input
-          name={name}
           id={name}
           ref={ref}
+          name={name}
           type="Number"
           min={minValue || 1}
           max={maxValue || 999999999}

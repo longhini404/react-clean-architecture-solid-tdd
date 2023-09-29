@@ -12,8 +12,8 @@ const MenuItem = ({ item, onClick, icon, ...props }: MenuItemProps) => {
   return (
     <ChakraMenuItem
       _hover={{
-        background: 'gray.700',
         transition: '0.2s',
+        background: 'gray.700',
         filter: 'brightness(0.8)',
       }}
       color="white"

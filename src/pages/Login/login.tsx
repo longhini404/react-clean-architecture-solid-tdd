@@ -44,32 +44,32 @@ const Login = ({ authentication }: LoginProps) => {
   return (
     <Flex
       p={8}
-      borderRadius="0.75rem"
       bg="gray.600"
       boxShadow="md"
-      w={{ base: '28rem' }}
-      textColor="gray.700"
       direction="column"
-      justifyContent="center"
       alignItems="center"
+      textColor="gray.700"
+      w={{ base: '28rem' }}
+      borderRadius="0.75rem"
+      justifyContent="center"
     >
       <Flex
         as="form"
-        direction="column"
-        mt={{ base: '1rem', md: '1.5rem', lg: '1.5rem' }}
         px="1.25rem"
-        w={{ base: '100%' }}
         maxW="28rem"
+        direction="column"
         alignItems="center"
-        onSubmit={handleSubmit(onSubmit)}
+        w={{ base: '100%' }}
         data-testid="login-form"
+        onSubmit={handleSubmit(onSubmit)}
+        mt={{ base: '1rem', md: '1.5rem', lg: '1.5rem' }}
       >
         <Input
           mt="8rem"
+          autoFocus
           placeholder="E-mail"
           data-testid="email-input"
           error={errors.login?.message}
-          autoFocus
           {...register('login')}
         />
         <Spacer my="1" />
@@ -81,20 +81,20 @@ const Login = ({ authentication }: LoginProps) => {
         />
         <Flex mt="1rem" display="column" w="100%">
           <Button
-            isLoading={isLoading}
-            type="submit"
             mt="2rem"
             mb="1rem"
             h="3.375rem"
+            type="submit"
+            color="white"
             w={{ base: '100%' }}
+            disabled={isLoading}
+            isLoading={isLoading}
+            data-testid="submit-button"
             backgroundColor="gray.500"
             _hover={{
               filter: 'brightness(1.1)',
               transition: '0.2s',
             }}
-            color="white"
-            data-testid="submit-button"
-            disabled={isLoading}
           >
             Login
           </Button>

@@ -5,7 +5,7 @@ const Container = ({ children, ...rest }: BoxProps) => (
   <Box
     maxW={{
       base: 'full',
-      sm: '43rem',
+      sm: '42rem',
       md: '60rem',
       lg: '90rem',
       xl: '100rem',

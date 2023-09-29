@@ -5,10 +5,9 @@ import { AvatarMenu } from 'components/avatar-menu'
 const Header = () => {
   return (
     <Flex
-      width="100vw"
       p="0.625rem 1.25rem"
       justifyContent="flex-start"
-      border-bottom="0.0625rem solid gray.600"
+      border-bottom="0.625rem solid gray.600"
       bgGradient="linear(to-r,gray.800, gray.700, gray.600)"
     >
       <Flex

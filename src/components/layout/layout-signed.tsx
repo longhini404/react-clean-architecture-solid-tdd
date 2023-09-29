@@ -8,7 +8,7 @@ const LayoutSigned = ({ children }: any) => (
     <Header />
     <Flex direction="row">
       <Container>
-        <Flex as="main" justify="center" minHeight="100vh">
+        <Flex as="main" justify="center">
           {children}
         </Flex>
       </Container>

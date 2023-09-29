@@ -9,10 +9,10 @@ type AvatarProps = ChackraAvatarProps & {
 const AvatarIcon = ({ name, image, ...props }: AvatarProps) => {
   return (
     <Avatar
-      name={name || 'User'}
       src={image}
       bg="#4A5568"
       color="gray.50"
+      name={name || 'User'}
       {...props}
     />
   )

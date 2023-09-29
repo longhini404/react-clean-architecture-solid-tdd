@@ -13,11 +13,11 @@ type SelectOption = {
 }
 
 export type SelectProps = ChackraSelectProps & {
+  aditionalReturn?: boolean
+  error: string
+  label: string
   name: string
   options: SelectOption[]
-  error: string
-  aditionalReturn?: boolean
-  label: string
 }
 
 const SelectElement = forwardRef<HTMLSelectElement, SelectProps>(
@@ -46,9 +46,9 @@ const SelectElement = forwardRef<HTMLSelectElement, SelectProps>(
           id={name}
           ref={ref}
           name={name}
-          onChange={props.onChange}
-          bgColor="gray.800"
           border="black"
+          bgColor="gray.800"
+          onChange={props.onChange}
           isDisabled={props.isDisabled}
           {...props}
         >
