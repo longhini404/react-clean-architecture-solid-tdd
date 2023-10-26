@@ -48,7 +48,7 @@ const ProductRegistration = ({
     register,
     setValue,
     handleSubmit,
-    formState: { errors, isDirty, isSubmitting },
+    formState: { errors, isSubmitting },
   } = useForm<Product>({
     mode: 'onSubmit',
     resolver: yupResolver(schema),
@@ -222,15 +222,15 @@ const ProductRegistration = ({
               <Button
                 h="3.25rem"
                 type="submit"
+                color="white"
+                disabled={isSubmitting}
                 isLoading={isSubmitting}
                 backgroundColor="gray.600"
                 data-testid="submit-button"
-                disabled={!isDirty || isSubmitting}
                 _hover={{
                   filter: 'brightness(1.1)',
                   transition: '0.2s',
                 }}
-                color="white"
               >
                 Cadastrar
               </Button>
