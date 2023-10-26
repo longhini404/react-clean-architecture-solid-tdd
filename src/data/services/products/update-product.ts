@@ -3,6 +3,6 @@ import { UpdateProduct } from 'domain/interfaces/products'
 
 export class UpdateProductService implements UpdateProduct {
   async update(id: number, product: UpdateProduct.Params): Promise<void> {
-    await api.put(`/products/${id}`, product)
+    await api.put(`/product/update/${id}`, product)
   }
 }

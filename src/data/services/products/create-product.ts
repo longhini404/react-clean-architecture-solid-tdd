@@ -3,6 +3,6 @@ import { CreateProduct } from 'domain/interfaces/products'
 
 export class CreateProductService implements CreateProduct {
   async create(product: CreateProduct.Params): Promise<void> {
-    await api.post(`/products/add`, product)
+    await api.post(`/product/create`, product)
   }
 }
