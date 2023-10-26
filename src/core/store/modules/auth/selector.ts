@@ -15,7 +15,6 @@ export const getToken = createDraftSafeSelector(
 
 export const getProfileInfo = createDraftSafeSelector([getState], state => ({
   profile: state.profile,
-  social: state.social,
 }))
 
 export const getLoadingInfo = createDraftSafeSelector([getState], state => ({

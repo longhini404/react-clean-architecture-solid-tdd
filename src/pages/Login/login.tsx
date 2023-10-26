@@ -1,22 +1,19 @@
 import React from 'react'
 import * as yup from 'yup'
 import { useSelector } from 'react-redux'
-import { Link as ReactLink } from 'react-router-dom'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Flex, Link, Spacer } from '@chakra-ui/react'
 import { Button } from 'components/button'
-import { Input, InputPassword } from 'components/input'
+import { Input } from 'components/input'
 import { getLoadingInfo } from 'core/store/modules/auth/selector'
 import { Authentication as AuthenticationModel } from 'domain/models'
 import { Authentication } from 'domain/interfaces/authentication'
+import { Link as ReactLink } from 'react-router-dom'
 
 const schema = yup.object().shape({
-  login: yup
-    .string()
-    .email('Please enter a valid email.')
-    .required('Please enter an email'),
-  password: yup.string().required('please enter a password'),
+  login: yup.string().required('Required'),
+  password: yup.string().required('Required'),
 })
 
 type LoginProps = {
@@ -43,46 +40,45 @@ const Login = ({ authentication }: LoginProps) => {
 
   return (
     <Flex
-      p={8}
+      p="2rem"
+      m="4rem"
       bg="gray.600"
       boxShadow="md"
+      borderRadius={5}
       direction="column"
       alignItems="center"
       textColor="gray.700"
-      w={{ base: '28rem' }}
-      borderRadius="0.75rem"
+      w={{ base: '30rem' }}
       justifyContent="center"
     >
       <Flex
         as="form"
-        px="1.25rem"
         maxW="28rem"
         direction="column"
         alignItems="center"
         w={{ base: '100%' }}
         data-testid="login-form"
         onSubmit={handleSubmit(onSubmit)}
-        mt={{ base: '1rem', md: '1.5rem', lg: '1.5rem' }}
       >
         <Input
-          mt="8rem"
-          autoFocus
+          mt="2rem"
+          type="email"
           placeholder="E-mail"
-          data-testid="email-input"
+          data-testid="login-input"
           error={errors.login?.message}
           {...register('login')}
         />
-        <Spacer my="1" />
-        <InputPassword
+        <Spacer my="1rem" />
+        <Input
+          type="password"
           placeholder="Password"
           data-testid="password-input"
           error={errors.password?.message}
           {...register('password')}
         />
-        <Flex mt="1rem" display="column" w="100%">
+        <Flex display="column" w="100%">
           <Button
-            mt="2rem"
-            mb="1rem"
+            my="2rem"
             h="3.375rem"
             type="submit"
             color="white"
@@ -99,9 +95,9 @@ const Login = ({ authentication }: LoginProps) => {
             Login
           </Button>
           <Link
-            as={ReactLink}
             to="/sign-up"
             color="white"
+            as={ReactLink}
             fontWeight="500"
             _hover={{
               filter: 'brightness(1.1)',

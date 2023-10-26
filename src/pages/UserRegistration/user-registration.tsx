@@ -4,7 +4,6 @@ import { Link as ReactLink } from 'react-router-dom'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
-import { Text } from 'components/text'
 import { Select } from 'components/select'
 import { Button } from 'components/button'
 import { Input, InputMask, InputPassword } from 'components/input'
@@ -70,117 +69,113 @@ const UserRegistration = ({
 
   return (
     <Flex
-      w="80vw"
-      as="form"
+      p="2rem"
+      m="4rem"
+      bg="gray.600"
+      boxShadow="md"
+      borderRadius={5}
       direction="column"
-      onSubmit={handleSubmit(onSubmit)}
-      data-testid="user-registration-form"
+      alignItems="center"
+      textColor="gray.700"
+      justifyContent="center"
     >
-      <Flex direction="column" align="center">
-        <Flex
-          mb="24"
-          w="80vw"
-          boxShadow="base"
-          borderRadius={5}
-          bgColor="gray.700"
-          direction="column"
-        >
-          <Text gRole="title" ml="1rem" my="1rem">
-            User
-          </Text>
-          <Flex align="flex-start" direction="column" p="1rem">
-            <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
-              <Flex flex={2} mr={{ base: '0', sm: '1rem' }} minW="13.75rem">
-                <Input
-                  placeholder="Name"
-                  data-testid="name-input"
-                  error={errors.name?.message}
-                  {...register('name')}
-                />
-              </Flex>
-              <Flex flex={1} minW="13.75rem">
-                <Input
-                  placeholder="E-mail"
-                  data-testid="email-input"
-                  error={errors.email?.message}
-                  {...register('email')}
-                />
-              </Flex>
+      <Flex
+        as="form"
+        direction="column"
+        alignItems="center"
+        data-testid="login-form"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <Flex align="flex-start" direction="column">
+          <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
+            <Flex flex={2} mr={{ base: '0', sm: '1rem' }} minW="13.75rem">
+              <Input
+                placeholder="Name"
+                data-testid="name-input"
+                error={errors.name?.message}
+                {...register('name')}
+              />
             </Flex>
-            <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
-              <Flex flex={1} mr={{ base: '0', sm: '0.5rem' }} minW="13.75rem">
-                <InputPassword
-                  placeholder="Password"
-                  formLabelProps={{ fontSize: 'sm' }}
-                  data-testid="password-input"
-                  error={errors.password?.message}
-                  {...register('password')}
-                />
-              </Flex>
-              <Flex flex={1} mr={{ base: '0', sm: '0.5rem' }} minW="13.75rem">
-                <InputPassword
-                  placeholder="Confirm password"
-                  formLabelProps={{ fontSize: 'sm' }}
-                  data-testid="confirm-password-input"
-                  error={errors.confirmPassword?.message}
-                  {...register('confirmPassword')}
-                />
-              </Flex>
-              <Flex flex={1} minW="13.75rem">
-                <InputMask
-                  mask="phone"
-                  placeholder="Phone"
-                  data-testid="cellphone-input"
-                  error={errors.cellphone?.message}
-                  {...register('cellphone')}
-                />
-              </Flex>
+            <Flex flex={1} minW="13.75rem">
+              <Input
+                placeholder="E-mail"
+                data-testid="email-input"
+                error={errors.email?.message}
+                {...register('email')}
+              />
             </Flex>
-            <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
-              <HStack spacing={2} w="100%">
-                <Select
-                  options={gender}
-                  data-testid="gender-select"
-                  {...register('gender')}
-                />
-              </HStack>
+          </Flex>
+          <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
+            <Flex flex={1} mr={{ base: '0', sm: '0.5rem' }} minW="13.75rem">
+              <InputPassword
+                placeholder="Password"
+                formLabelProps={{ fontSize: 'sm' }}
+                data-testid="password-input"
+                error={errors.password?.message}
+                {...register('password')}
+              />
             </Flex>
-            <Flex
-              w="100%"
-              mb="1rem"
-              alignItems="center"
-              justify="space-between"
-              data-testid="buttons-flexbox"
+            <Flex flex={1} mr={{ base: '0', sm: '0.5rem' }} minW="13.75rem">
+              <InputPassword
+                placeholder="Confirm password"
+                formLabelProps={{ fontSize: 'sm' }}
+                data-testid="confirm-password-input"
+                error={errors.confirmPassword?.message}
+                {...register('confirmPassword')}
+              />
+            </Flex>
+            <Flex flex={1} minW="13.75rem">
+              <InputMask
+                mask="phone"
+                placeholder="Phone"
+                data-testid="cellphone-input"
+                error={errors.cellphone?.message}
+                {...register('cellphone')}
+              />
+            </Flex>
+          </Flex>
+          <Flex justify="flex-start" wrap="wrap" w="100%" mb="0.5rem">
+            <HStack spacing={2} w="100%">
+              <Select
+                options={gender}
+                data-testid="gender-select"
+                {...register('gender')}
+              />
+            </HStack>
+          </Flex>
+          <Flex
+            w="100%"
+            alignItems="center"
+            justify="space-between"
+            data-testid="buttons-flexbox"
+          >
+            <Link
+              to="/"
+              as={ReactLink}
+              fontWeight="500"
+              color="gray.500"
+              _hover={{
+                filter: 'brightness(1.1)',
+                transition: '0.2s',
+              }}
             >
-              <Link
-                to="/"
-                as={ReactLink}
-                fontWeight="500"
-                color="gray.500"
-                _hover={{
-                  filter: 'brightness(1.1)',
-                  transition: '0.2s',
-                }}
-              >
-                <Flex direction="row">Back</Flex>
-              </Link>
+              <Flex direction="row">Back</Flex>
+            </Link>
 
-              <Button
-                h="3.25rem"
-                type="submit"
-                isLoading={isSubmitting}
-                data-testid="submit-button"
-                disabled={!isDirty || isSubmitting}
-                backgroundColor="gray.600"
-                _hover={{
-                  filter: 'brightness(1.1)',
-                  transition: '0.2s',
-                }}
-                color="white"
-              >
-                Register
-              </Button>
-            </Flex>
+            <Button
+              type="submit"
+              isLoading={isSubmitting}
+              data-testid="submit-button"
+              disabled={!isDirty || isSubmitting}
+              backgroundColor="gray.600"
+              _hover={{
+                filter: 'brightness(1.1)',
+                transition: '0.2s',
+              }}
+              color="white"
+            >
+              Register
+            </Button>
           </Flex>
         </Flex>
       </Flex>

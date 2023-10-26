@@ -4,9 +4,10 @@ import { breakpoints } from './custom'
 
 const globalStyles = {
   body: {
+    color: 'gray.400',
     fontFamily: 'Roboto',
     overflowX: 'hidden',
-    backgroundColor: 'gray.900',
+    backgroundColor: 'gray.800',
   },
 }
 

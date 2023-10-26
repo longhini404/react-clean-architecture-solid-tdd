@@ -7,15 +7,10 @@ type LayoutDefaultProps = {
 }
 
 const LayoutDefault = ({ children }: LayoutDefaultProps) => (
-  <Flex direction="row">
-    <Flex
-      bg="gray.800"
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-    >
+  <Flex direction="row" justifyContent="center">
+    <Flex bg="gray.800" direction="column" alignItems="center">
       <Container>
-        <Flex as="main" w="full" justifyContent="center">
+        <Flex as="main" w="full">
           {children}
         </Flex>
       </Container>
