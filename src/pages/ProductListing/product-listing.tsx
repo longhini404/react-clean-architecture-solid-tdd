@@ -105,38 +105,45 @@ const ProductListing = ({
       <Text fontSize="xl" fontWeight="bold" mb="2rem">
         Listar Produtos
       </Text>
-      <Table variant="simple">
-        <Thead>
-          <Tr>
-            <Th>ID</Th>
-            <Th>Título</Th>
-            <Th>Descrição</Th>
-            <Th>Ações</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {getProducts?.products.map(product => (
-            <Tr key={product.id}>
-              <Td>{product.id}</Td>
-              <Td>{product.title}</Td>
-              <Td>{product.description}</Td>
-              <Td>
-                <Flex flexDirection="column">
-                  <Button onClick={() => openModal(product.id)} my="0.25rem">
-                    Detalhes
-                  </Button>
-                  <Button onClick={() => handleEdit(product.id)} my="0.25rem">
-                    Editar
-                  </Button>
-                  <Button onClick={() => handleDelete(product.id)} my="0.25rem">
-                    Deletar
-                  </Button>
-                </Flex>
-              </Td>
+      {getProducts?.products.length === 0 ? (
+        <Text>Nenhum produto cadastrado.</Text>
+      ) : (
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>ID</Th>
+              <Th>Título</Th>
+              <Th>Descrição</Th>
+              <Th>Ações</Th>
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
+          </Thead>
+          <Tbody>
+            {getProducts?.products.map(product => (
+              <Tr key={product.id}>
+                <Td>{product.id}</Td>
+                <Td>{product.title}</Td>
+                <Td>{product.description}</Td>
+                <Td>
+                  <Flex flexDirection="column">
+                    <Button onClick={() => openModal(product.id)} my="0.25rem">
+                      Detalhes
+                    </Button>
+                    <Button onClick={() => handleEdit(product.id)} my="0.25rem">
+                      Editar
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(product.id)}
+                      my="0.25rem"
+                    >
+                      Deletar
+                    </Button>
+                  </Flex>
+                </Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      )}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <ModalOverlay />
