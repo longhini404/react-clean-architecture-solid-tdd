@@ -24,11 +24,11 @@ test('renders Login component with fake data', async () => {
   const fakeEmail = faker.internet.email()
   const fakePassword = faker.internet.password()
 
-  const emailInput = getByTestId('email-input')
+  const loginInput = getByTestId('login-input')
   const passwordInput = getByTestId('password-input')
   const submitButton = getByTestId('submit-button')
 
-  fireEvent.change(emailInput, { target: { value: fakeEmail } })
+  fireEvent.change(loginInput, { target: { value: fakeEmail } })
   fireEvent.change(passwordInput, { target: { value: fakePassword } })
 
   fireEvent.click(submitButton)
@@ -40,3 +40,4 @@ test('renders Login component with fake data', async () => {
     })
   })
 })
+
